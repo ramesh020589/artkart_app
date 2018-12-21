@@ -35,11 +35,9 @@
                     <tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
                                 <td>${item.name}</td>
                                 <td>${item.cost}</td>
-                                <sec:ifLoggedIn>
-                                    <g:if test="${!cart?.items?.contains(item) || !cart}">
-                                    <td><g:link controller="cart" action="addItemToCart" params="[id:item.id]">Add</g:link> </td>
-                                    </g:if>
-                                </sec:ifLoggedIn>
+                                <g:if test="${!cart?.items?.contains(item) || !cart}">
+                                  <td><g:link controller="cart" action="addItemToCart" params="[id:item.id]">Add</g:link> </td>
+                                </g:if>
                     </tr>
                 </g:each>
                 </tbody>
